@@ -49,13 +49,14 @@ pipeline {
         //     }
         //  }
 
-    post {
+    
+}
+post {
         always {
             echo 'Finished running tests'
             //archiveArtifacts artifacts: '**/test-output/**/*.*', allowEmptyArchive: true
 
             }
         }
-}
 
 }

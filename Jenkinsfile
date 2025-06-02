@@ -10,6 +10,11 @@ pipeline {
         jdk 'JDK 17'         // Use the JDK installation name configured in Jenkins
     }
 
+    
+environment {
+        REPORT_DIR = 'test-output'  // Default TestNG report location
+    }
+
     stages {
         stage('Checkout Code') {
             steps {
@@ -28,6 +33,19 @@ pipeline {
                 junit '**/target/surefire-reports/*.xml'
             }
         }
+        stage('Publish Extent Report') {
+            steps {
+                // If you are generating HTML reports via ExtentReports,
+                // copy them to a fixed location
+                publishHTML (target: [
+                    reportDir: 'test-output/ExtentReports', // Adjust path
+                    reportFiles: 'ExtentReport.html',       // Adjust file
+                    reportName: 'Extent Report',
+                    keepAll: true,
+                    alwaysLinkToLastBuild: true,
+                    allowMissing: true
+                ])
+            }
     }
 
     post {

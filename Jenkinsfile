@@ -11,9 +11,9 @@ pipeline {
     }
 
     
-environment {
-        REPORT_DIR = 'test-output'  // Default TestNG report location
-    }
+// environment {
+//         REPORT_DIR = 'test-output'  // Default TestNG report location
+//     }
 
     stages {
         stage('Checkout Code') {
@@ -34,25 +34,25 @@ environment {
             }
         }
 
-        stage('Publish Extent Report') {
-            steps {
-                // If you are generating HTML reports via ExtentReports,
-                // copy them to a fixed location
-                publishHTML (target: [
-                    reportDir: 'test-output/ExtentReports', // Adjust path
-                    reportFiles: 'ExtentReport.html',       // Adjust file
-                    reportName: 'Extent Report',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true,
-                    allowMissing: true
-                ])
-            }
-         }
+        // stage('Publish Extent Report') {
+        //     steps {
+        //         // If you are generating HTML reports via ExtentReports,
+        //         // copy them to a fixed location
+        //         publishHTML (target: [
+        //             reportDir: 'test-output/ExtentReports', // Adjust path
+        //             reportFiles: 'ExtentReport.html',       // Adjust file
+        //             reportName: 'Extent Report',
+        //             keepAll: true,
+        //             alwaysLinkToLastBuild: true,
+        //             allowMissing: true
+        //         ])
+        //     }
+        //  }
 
     post {
         always {
             echo 'Finished running tests'
-            archiveArtifacts artifacts: '**/test-output/**/*.*', allowEmptyArchive: true
+            //archiveArtifacts artifacts: '**/test-output/**/*.*', allowEmptyArchive: true
 
             }
         }

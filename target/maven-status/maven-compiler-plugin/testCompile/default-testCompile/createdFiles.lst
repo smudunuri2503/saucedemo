@@ -1,0 +1,6 @@
+com/bdd/selenium/hooks/BrowserHooks.class
+com/bdd/selenium/core/DriverManager.class
+com/bdd/selenium/runner/TestRunner.class
+com/bdd/selenium/stepdefinitions/saucelabs.class
+com/bdd/selenium/hooks/BrowserHooks$1.class
+com/bdd/selenium/AppTest.class

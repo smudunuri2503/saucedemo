@@ -33,6 +33,7 @@ environment {
                 junit '**/target/surefire-reports/*.xml'
             }
         }
+
         stage('Publish Extent Report') {
             steps {
                 // If you are generating HTML reports via ExtentReports,
@@ -46,12 +47,15 @@ environment {
                     allowMissing: true
                 ])
             }
-    }
+         }
 
     post {
         always {
             echo 'Finished running tests'
+            archiveArtifacts artifacts: '**/test-output/**/*.*', allowEmptyArchive: true
+
+            }
         }
-    }
 }
+
 }

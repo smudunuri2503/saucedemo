@@ -33,24 +33,7 @@ pipeline {
                 junit '**/target/surefire-reports/*.xml'
             }
         }
-
-        // stage('Publish Extent Report') {
-        //     steps {
-        //         // If you are generating HTML reports via ExtentReports,
-        //         // copy them to a fixed location
-        //         publishHTML (target: [
-        //             reportDir: 'test-output/ExtentReports', // Adjust path
-        //             reportFiles: 'ExtentReport.html',       // Adjust file
-        //             reportName: 'Extent Report',
-        //             keepAll: true,
-        //             alwaysLinkToLastBuild: true,
-        //             allowMissing: true
-        //         ])
-        //     }
-        //  }
-
-    
-}
+    }
 post {
         always {
             echo 'Finished running tests'

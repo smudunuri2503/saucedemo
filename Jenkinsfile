@@ -10,6 +10,11 @@ pipeline {
         jdk 'JDK 17'         // Use the JDK installation name configured in Jenkins
     }
 
+    
+// environment {
+//         REPORT_DIR = 'test-output'  // Default TestNG report location
+//     }
+
     stages {
         stage('Checkout Code') {
             steps {
@@ -29,10 +34,12 @@ pipeline {
             }
         }
     }
-
-    post {
+post {
         always {
             echo 'Finished running tests'
+            //archiveArtifacts artifacts: '**/test-output/**/*.*', allowEmptyArchive: true
+
+            }
         }
-    }
+
 }

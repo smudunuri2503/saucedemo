@@ -20,6 +20,7 @@ import com.bdd.selenium.utils.ExtentManager;
 public class saucelabs {
 
     private final WebDriver driver;
+    
 
     public saucelabs(DriverManager driverManager) {
         this.driver = driverManager.getDriver();
